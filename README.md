@@ -18,30 +18,76 @@ To write a program to perform linear search and binary search using python progr
 6.	Repeat steps 2 to 5 until low meets high
 ## Program:
 i)	#Use a linear search method to match the item in a list.
+```Python
+def search(array,key,n):
+    for i in range(n):
+        if array[i]==key:
+            return i
+    return -1
+array=eval(input())
+key=int(input())
+n=len(array)
+array.sort()
+result=search(array,key,n)
+print(array)
+if(result==-1):
+    print("Element not found")
+else:
+    print("Element found at index: ",result)
 ```
 
-
-
-```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
-```
+```Python
+def binary(array,key,low,high):
+    while(low<=high):
+        mid=low+(high-low)//2
+        if array[mid]==key:
+            return mid
+        elif array[mid]<key:
+            low=mid+1
+        elif array[mid]>key:
+            high=mid-1
+    return -1
 
-
-
-
+array=eval(input())
+key=int(input())
+array.sort()
+low,high=0,len(array)-1
+result=binary(array,key,low,high)
+print(array)
+if result==-1:
+    print("Element not found")
+else:
+    print("Element found at index: ",result)
 
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
-```
+```Python
+def binary(array,key,low,high):
+    if(low<=high):
+        mid=low+(high-low)//2
+        if array[mid]==key:
+            return mid
+        elif array[mid]<key:
+            return binary(array,key,mid+1,high)
+        elif array[mid]>key:
+            return binary(array,key,low,mid-1)
+    return -1
 
-
-
-
-
+array=eval(input())
+key=int(input())
+array.sort()
+low,high=0,len(array)-1
+result=binary(array,key,low,high)
+print(array)
+if result==-1:
+    print("Element not found")
+else:
+    print("Element found at index: ",result)
 ```
 ## Sample Input and Output
 
-
+![output](search.png)
 
 
 
